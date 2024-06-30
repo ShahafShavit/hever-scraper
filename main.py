@@ -282,12 +282,12 @@ def API_CALL(client, store_desc: str, trunc_desc_to: int, options: int = 1) -> t
 
 
 # Returns HTML Response string or None if page fetching failed
-def fetch_page(url, cookies, headers) -> str or None:
+def fetch_page(url, cookies = None, headers= None) -> str or None:
     max_retries = 5
     delay = 1  # Initial delay in seconds
 
     with requests.Session() as session:
-        session.cookies.update(cookies)
+        # session.cookies.update(cookies)
         session.headers.update(headers)
 
         for attempt in range(max_retries):
@@ -477,7 +477,7 @@ def convert_duration(seconds: float) -> str:
 # Takes image url and filename (grabs the extension from the original file) and downloads it.
 def download_image(image_url: str, new_name: str) -> None:
     with requests.Session() as session:
-        session.cookies.update(cookies)
+        # session.cookies.update(cookies)
         session.headers.update(headers)
         response = session.get(image_url)
         if response.status_code == 200:
@@ -527,7 +527,7 @@ def scrape_ids(conn: sqlite3.Connection, ids_range: range, check_alive_list: boo
     print(f"Starting scraping process for IDs: ({range_min}-{range_max}), checking {len(ids_range)} IDs.")
     for i in ids_range:
         updated_url = url + str(i)
-        html_content = fetch_page(updated_url, cookies, headers)
+        html_content = fetch_page(updated_url, headers)
         if html_content:
             title, percentage, link, description, image_url = parse_html_with_desc(html_content)
             counter += 1
@@ -721,11 +721,6 @@ if __name__ == "__main__":
 
     client = OpenAI()
 
-    cookies = {
-        'ASP.NET_SessionId': 'ysgjg0sq3kkvtllzovnuucbi',
-        'sid': 's%3Aysgjg0sq3kkvtllzovnuucbi.AbBq1ag120oqLW8VWTcBQ%2Ba9o4Be%2BKP1cmNHErEtDvc',
-        # Add other cookies if needed
-    }
 
     # Headers to mimic a browser request
     headers = {
