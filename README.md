@@ -48,7 +48,7 @@ To get started with Hever Scraper, follow these steps:
 To run the scraper and update the database file, use the following command:
 
 ```bash
-python scraper.py
+python main.py
 ```
 
 This command will start the scraping process, collecting data from the specified sources and updating the `.db` file.
