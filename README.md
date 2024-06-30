@@ -1,6 +1,4 @@
-Here's the README in Markdown format:
 
-```markdown
 # Hever Scraper
 
 Hever Scraper is a data scraping tool written in Python, designed to gather and maintain the data used by the [Hever Index](https://github.com/ShahafShavit/hever-index) project. This scraper collects relevant data and stores it in a `.db` database file, which is utilized by the Hever Index website.
@@ -72,6 +70,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Contact Information
 
 For any inquiries, please contact Shahaf Shavit at [shavitshahaf@gmail.com].
-```
 
 You can copy and paste this Markdown text into your README.md file in the `hever-scraper` repository. Let me know if you need any further modifications!
