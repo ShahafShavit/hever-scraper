@@ -672,7 +672,6 @@ def categorize_db(conn: sqlite3.Connection, openai_client, optimization: bool = 
                     else:
                         print("Wrong main-sub output")
             except SyntaxError:
-                # print(f"*** --> ERROR WITH ID {row_id}")
                 with open("problem_ids.txt", 'a') as f:
                     f.write(
                         f"ERROR: {str(row_id)} -> error parsing category return from OPENAI. RETURNED: ({categories__})")
